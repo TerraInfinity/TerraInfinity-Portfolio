@@ -1,13 +1,19 @@
 import mdx from "@next/mdx";
 
 const withMDX = mdx({
-  extension: /\.mdx?$/,
-  options: {},
+    extension: /\.mdx?$/,
+    options: {},
 });
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ["ts", "tsx", "md", "mdx"],
+    pageExtensions: ["ts", "tsx", "md", "mdx"],
+    output: 'export',
+    // Add this to log during build
+    onDemandEntries: {
+        maxInactiveAge: 25 * 1000,
+        pagesBufferLength: 2,
+    },
 };
 
+console.log("Next.js Config Loaded:", nextConfig);
 export default withMDX(nextConfig);
