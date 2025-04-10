@@ -7,7 +7,6 @@ const withMDX = mdx({
 
 const nextConfig = {
     pageExtensions: ["ts", "tsx", "md", "mdx"],
-    output: 'export',
 
     // Add this to log during build
     onDemandEntries: {
