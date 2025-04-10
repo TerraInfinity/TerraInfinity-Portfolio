@@ -54,12 +54,20 @@ export default function About() {
     {
       title: about.work.title,
       display: about.work.display,
-      items: about.work.experiences.map((experience) => experience.company),
+      items: about.work.experiences.map((experience) => 
+        typeof experience.company === 'string' 
+          ? experience.company 
+          : experience.company.props.children
+      ),
     },
     {
       title: about.studies.title,
       display: about.studies.display,
-      items: about.studies.institutions.map((institution) => institution.name),
+      items: about.studies.institutions.map((institution) => 
+        typeof institution.name === 'string' 
+          ? institution.name 
+          : institution.name.props.children
+      ),
     },
     {
       title: about.technical.title,
@@ -218,7 +226,10 @@ export default function About() {
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
                     <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
+                      <Text 
+                        id={typeof experience.company === 'string' ? experience.company : experience.company.props.children} 
+                        variant="heading-strong-l"
+                      >
                         {experience.company}
                       </Text>
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
@@ -280,8 +291,11 @@ export default function About() {
             {about.studies.institutions.map((institution, index) => (
               <Column key={`${institution.name}-${index}`} fillWidth>
                 <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
-                  <Text id={institution.name} variant="heading-strong-l">
-                    {institution.name}
+                  <Text 
+                    id={typeof institution.name === 'string' ? institution.name : institution.name.props.children} 
+                    variant="heading-strong-l"
+                  >
+                    {typeof institution.name === 'string' ? institution.name : institution.name.props.children}
                   </Text>
                   <Text variant="heading-default-xs" onBackground="neutral-weak">
                     {institution.timeframe}
