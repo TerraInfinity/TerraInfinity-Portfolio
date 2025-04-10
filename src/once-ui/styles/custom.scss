@@ -1,0 +1,10 @@
+.blurred {
+    filter: blur(4px);
+    transition: filter 0.3s;
+    display: inline !important;
+    /* Forces the span to stay inline */
+    &:hover,
+    &:focus {
+        filter: none;
+    }
+}

@@ -271,26 +271,69 @@ export default function About() {
             </>
           )}
 
-          {about.studies.display && (
-            <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
-                {about.studies.title}
-              </Heading>
-              <Column fillWidth gap="l" marginBottom="40">
-                {about.studies.institutions.map((institution, index) => (
-                  <Column key={`${institution.name}-${index}`} fillWidth gap="4">
-                    <Text id={institution.name} variant="heading-strong-l">
-                      {institution.name}
-                    </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {institution.description}
-                    </Text>
+        {about.studies.display && (
+        <>
+          <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+            {about.studies.title}
+          </Heading>
+          <Column fillWidth gap="l" marginBottom="40">
+            {about.studies.institutions.map((institution, index) => (
+              <Column key={`${institution.name}-${index}`} fillWidth>
+                <Flex fillWidth horizontal="space-between" vertical="end" marginBottom="4">
+                  <Text id={institution.name} variant="heading-strong-l">
+                    {institution.name}
+                  </Text>
+                  <Text variant="heading-default-xs" onBackground="neutral-weak">
+                    {institution.timeframe}
+                  </Text>
+                </Flex>
+                <Text variant="body-default-s" onBackground="brand-weak" marginBottom="m">
+                  {institution.study}
+                </Text>
+                {Array.isArray(institution.description) ? (
+                  <Column as="ul" gap="16">
+                    {institution.description.map((item, idx) => (
+                      <Text
+                        as="li"
+                        variant="body-default-m"
+                        key={`${institution.name}-${idx}`}
+                      >
+                        {item}
+                      </Text>
+                    ))}
                   </Column>
-                ))}
+                ) : (
+                  <Text variant="body-default-m">
+                    {institution.description}
+                  </Text>
+                )}
+                {institution.images && institution.images.length > 0 && (
+                  <Flex fillWidth paddingTop="m" paddingLeft="40" wrap>
+                    {institution.images.map((image, index) => (
+                      <Flex
+                        key={index}
+                        border="neutral-medium"
+                        radius="m"
+                        minWidth={image.width}
+                        height={image.height}
+                      >
+                        <SmartImage
+                          enlarge
+                          radius="m"
+                          sizes={image.width.toString()}
+                          alt={image.alt}
+                          src={image.src}
+                        />
+                      </Flex>
+                    ))}
+                  </Flex>
+                )}
               </Column>
-            </>
-          )}
-
+            ))}
+          </Column>
+        </>
+      )}
+      
           {about.technical.display && (
             <>
               <Heading
