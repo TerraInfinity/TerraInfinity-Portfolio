@@ -10,7 +10,7 @@ const person = {
   role2: "Yogi",
   role_general: "Technologist",
   avatar: "/images/avatar.jpg",
-  og_background: "images/gallery/img-14.jpg",
+  og_background: "/images/og_background.jpg",
   location: "America/Vancouver", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
   languages: [], // optional: Leave the array empty if you don't want to display languages
 };
