@@ -33,7 +33,18 @@ export async function GET(request: Request) {
           objectFit: "cover",
         }}
       />
-
+      {/* Overlay with increased opacity to fade background more */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          background: "rgba(0, 0, 0, 0.7)", // fading
+          zIndex: 2,
+        }}
+      />
 
       <div
         style={{
@@ -58,7 +69,8 @@ export async function GET(request: Request) {
             textWrap: "balance",
           }}
         >
-          {title}
+          {/*{title} */}
+          Portfolio
         </span>
         <div
           style={{
