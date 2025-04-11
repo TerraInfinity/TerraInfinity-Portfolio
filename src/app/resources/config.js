@@ -68,7 +68,7 @@ const display = {
 };
 
 const mailchimp = {
-    action: `https://<dc>.api.mailchimp.com/3.0/lists/<list_id>/members`, // Update this with your data center and list ID
+    action: `https://terrainfinity.us5.list-manage.com/subscribe/post?u=5319c1b0a2adbf61a29ca0786&amp;id=f7fb85fafa&amp;f_id=0010c1e1f0`, // Update this with your data center and list ID
     effects: {
         mask: {
             cursor: false,
