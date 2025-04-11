@@ -22,6 +22,19 @@ export async function GET(request: Request) {
         background: "#151515",
       }}
     >
+       <img
+        src={"https://" + baseURL + person.og_background}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+        }}
+      />
+
+
       <div
         style={{
           display: "flex",
@@ -52,7 +65,7 @@ export async function GET(request: Request) {
           }}
         >
           <img
-            src={"https://" + baseURL + person.og_background}
+            src={"https://" + baseURL + person.avatar}
             style={{
               width: "12rem",
               height: "12rem",
