@@ -1,4 +1,4 @@
-const baseURL = "https://www.terrainfinity.ca";
+const baseURL = "terrainfinity.ca";
 
 const routes = {
     "/": true,
