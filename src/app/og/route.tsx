@@ -18,13 +18,21 @@ export async function GET(request: Request) {
         display: "flex",
         width: "100%",
         height: "100%",
-        padding: "8rem",
-        background: "red",        
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        position: "relative",
       }}
     >
+      <img
+        src={`https://${baseURL}/images/gallery/img-14.jpg`}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          zIndex: -1,
+        }}
+      />
       <div
         style={{
           display: "flex",
@@ -34,6 +42,9 @@ export async function GET(request: Request) {
           fontFamily: "Inter",
           fontStyle: "normal",
           color: "white",
+          padding: "8rem",
+          width: "100%",
+          height: "100%",
         }}
       >
         <span
