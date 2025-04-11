@@ -15,28 +15,18 @@ export async function GET(request: Request) {
   return new ImageResponse(
     <div
       style={{
-        position: "relative",
+        display: "flex",
         width: "100%",
         height: "100%",
+        padding: "8rem",
+        background: "#151515",
       }}
     >
-    <img
-        src={"https://" + baseURL + person.og_background}
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          objectFit: "cover",
-        }}
-      />
       <div
         style={{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          padding: "8rem",
           gap: "4rem",
           fontFamily: "Inter",
           fontStyle: "normal",
@@ -62,7 +52,7 @@ export async function GET(request: Request) {
           }}
         >
           <img
-            src={"https://" + baseURL + person.avatar}
+            src={"https://" + baseURL + person.og_background}
             style={{
               width: "12rem",
               height: "12rem",
