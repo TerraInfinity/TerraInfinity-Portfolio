@@ -19,7 +19,7 @@ export async function GET(request: Request) {
         width: "100%",
         height: "100%",
         padding: "8rem",
-        background: `url(https://${baseURL}/images/gallery/img-14.jpg)`,
+        background: "red",        
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
