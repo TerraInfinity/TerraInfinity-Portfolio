@@ -52,7 +52,7 @@ export async function GET(request: Request) {
           }}
         >
           <img
-            src={"https://" + baseURL + person.og_background}
+            src={"https://" + baseURL + person.avatar}
             style={{
               width: "12rem",
               height: "12rem",
