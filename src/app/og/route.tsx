@@ -41,10 +41,7 @@ export async function GET(request: Request) {
           gap: "4rem",
           fontFamily: "Inter",
           fontStyle: "normal",
-          color: "white",
-          padding: "8rem",
-          width: "100%",
-          height: "100%",
+          color: "green",
         }}
       >
         <span
