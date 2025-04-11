@@ -1,5 +1,9 @@
 # **Build your portfolio with Once UI's Magic Portfolio**
 
+This template has been modified with some customizations. We appreciate the work of the original authors, Lorant Toth and Zsofia Komaromi. Please note that this project is currently under construction as we adjust to the new design.
+Out of respect the original readme.md has been left uneditted, but may be subject to changes.
+Please refer to their original github if you wish to clone this original template.
+
 View the [demo here](https://demo.magic-portfolio.com).
 
 ![Magic Portfolio](public/images/cover.png)
