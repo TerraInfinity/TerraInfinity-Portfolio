@@ -43,7 +43,7 @@ export async function GET(request: Request) {
           gap: "4rem",
           fontFamily: "Inter",
           fontStyle: "normal",
-          color: "white",
+          color: "black",
         }}
       >
         <span
