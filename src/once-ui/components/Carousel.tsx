@@ -96,6 +96,7 @@ const Carousel: React.FC<CarouselProps> = ({
           aspectRatio={aspectRatio}
           src={images[activeIndex]?.src}
           style={{
+            objectFit: "contain", // Added to ensure the image fits without cropping
             ...(images.length > 1 && {
               cursor: "pointer",
             }),
@@ -146,6 +147,7 @@ const Carousel: React.FC<CarouselProps> = ({
                     cursor="interactive"
                     radius="m"
                     transition="macro-medium"
+                    style={{ objectFit: "contain" }} // Optional: added for thumbnails
                   />
                 </Flex>
               ))}
