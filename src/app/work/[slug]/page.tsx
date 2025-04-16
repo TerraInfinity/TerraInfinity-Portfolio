@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { CustomMDX } from "@/components/mdx";
 import { getPosts } from "@/app/utils/utils";
 import { AvatarGroup, Button, Column, Flex, Heading, SmartImage, Text } from "@/once-ui/components";
+import { Carousel } from "@/once-ui/components/Carousel";
 import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
@@ -105,15 +106,9 @@ export default function Project({ params }: WorkParams) {
         </Button>
         <Heading variant="display-strong-s">{post.metadata.title}</Heading>
       </Column>
-      {post.metadata.images.length > 0 && (
-        <SmartImage
-          priority
-          aspectRatio="16 / 9"
-          radius="m"
-          alt="image"
-          src={post.metadata.images[0]}
-        />
-      )}
+      {post.metadata.images && post.metadata.images.length > 0 ? (
+        <Carousel images={post.metadata.images.map((src: string) => ({ src, alt: post.metadata.title || "Project image" }))} />
+      ) : null}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <Flex gap="12" marginBottom="24" vertical="center">
           {post.metadata.team && <AvatarGroup reverse avatars={avatars} size="m" />}
