@@ -60,7 +60,7 @@ def process_images(input_folder, output_folder):
 
 if __name__ == "__main__":
     # Example usage
-    input_folder = "../../public/images/projects/crystal-cloud-podcast"  # Change this to your input folder
+    input_folder = "../../public/images/projects/crystal-cloud-podcast/old"  # Change this to your input folder
     output_folder = "../../public/images/projects/crystal-cloud-podcast/resized"  # Change this to your desired output folder
     print("\nStarting image processing...")
     process_images(input_folder, output_folder)
