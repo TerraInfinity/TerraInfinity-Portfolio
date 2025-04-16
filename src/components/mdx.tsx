@@ -128,6 +128,8 @@ function createParagraph({ children }: TextProps) {
   );
 }
 
+import { Carousel } from '@/once-ui/components/Carousel';
+
 const components = {
   p: createParagraph as any,
   h1: createHeading(1) as any,
@@ -140,6 +142,7 @@ const components = {
   a: CustomLink as any,
   Table,
   CodeBlock,
+  Carousel,
 };
 
 type CustomMDXProps = MDXRemoteProps & {
