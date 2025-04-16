@@ -33,9 +33,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <Column fillWidth gap="m">
       <Carousel
-        fitMode="cover" // Forces images to scale and fill the aspect ratio
         sizes="(max-width: 960px) 100vw, 960px"
-        aspectRatio="16 / 9" // Or any desired aspect ratio
         images={images.map((image) => ({
           src: image,
           alt: title,

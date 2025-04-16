@@ -14,7 +14,6 @@ interface CarouselProps extends React.ComponentProps<typeof Flex> {
   aspectRatio?: string;
   sizes?: string;
   revealedByDefault?: boolean;
-  fitMode?: "cover" | "contain"; // New prop to control image scaling
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -23,7 +22,6 @@ const Carousel: React.FC<CarouselProps> = ({
   aspectRatio = "16 / 9",
   sizes,
   revealedByDefault = false,
-  fitMode = "cover", // Default to "cover" to force aspect ratio
   ...rest
 }) => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -49,9 +47,12 @@ const Carousel: React.FC<CarouselProps> = ({
   const handleControlClick = (nextIndex: number) => {
     if (nextIndex !== activeIndex && !transitionTimeoutRef.current) {
       preloadNextImage(nextIndex);
+
       setIsTransitioning(false);
+
       transitionTimeoutRef.current = setTimeout(() => {
         setActiveIndex(nextIndex);
+
         setTimeout(() => {
           setIsTransitioning(true);
           transitionTimeoutRef.current = undefined;
@@ -76,9 +77,6 @@ const Carousel: React.FC<CarouselProps> = ({
     return null;
   }
 
-  // Set background color only if fitMode is "contain"
-  const backgroundColor = fitMode === "contain" ? "var(--neutral-surface)" : "transparent";
-
   return (
     <Flex fillWidth gap="12" direction="column" {...rest}>
       <RevealFx
@@ -88,7 +86,6 @@ const Carousel: React.FC<CarouselProps> = ({
         translateY="16"
         aspectRatio={aspectRatio}
         speed="fast"
-        style={{ backgroundColor }} // Background for "contain" mode
       >
         <SmartImage
           sizes={sizes}
@@ -99,7 +96,6 @@ const Carousel: React.FC<CarouselProps> = ({
           aspectRatio={aspectRatio}
           src={images[activeIndex]?.src}
           style={{
-            objectFit: fitMode, // "cover" forces the aspect ratio
             ...(images.length > 1 && {
               cursor: "pointer",
             }),
@@ -124,7 +120,7 @@ const Carousel: React.FC<CarouselProps> = ({
                   cursor="interactive"
                   fillWidth
                   height="2"
-                />
+                ></Flex>
               ))}
             </Flex>
           ) : (
@@ -150,7 +146,6 @@ const Carousel: React.FC<CarouselProps> = ({
                     cursor="interactive"
                     radius="m"
                     transition="macro-medium"
-                    style={{ objectFit: fitMode }} // Apply to thumbnails too
                   />
                 </Flex>
               ))}
