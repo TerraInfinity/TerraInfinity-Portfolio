@@ -19,7 +19,14 @@ async function fetchVideosFromPrefix(prefix: string): Promise<{ name: string; ur
   const videoData: { name: string; url: string }[] = [];
   let isTruncated = true;
   let continuationToken: string | undefined;
-
+  
+  console.log('Environment variables:', {
+    accessKey: process.env.AWS_ACCESS_KEY_ID,
+    secretKey: process.env.AWS_SECRET_ACCESS_KEY ? 'Defined' : 'Undefined',
+    region: process.env.AWS_REGION,
+    bucket: process.env.AWS_S3_BUCKET_NAME,
+  });
+  
   while (isTruncated) {
     const command = new ListObjectsV2Command({
       Bucket: process.env.AWS_S3_BUCKET_NAME,
