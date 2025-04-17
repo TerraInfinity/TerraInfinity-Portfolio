@@ -33,6 +33,8 @@ import {
   PiImageDuotone,
 } from "react-icons/pi";
 
+import { CiVideoOn } from "react-icons/ci";
+
 import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export const iconLibrary: Record<string, IconType> = {
@@ -60,6 +62,7 @@ export const iconLibrary: Record<string, IconType> = {
   home: PiHouseDuotone,
   gallery: PiImageDuotone,
   discord: FaDiscord,
+  theater: CiVideoOn,
   eye: HiOutlineEye,
   eyeOff: HiOutlineEyeSlash,
   github: FaGithub,

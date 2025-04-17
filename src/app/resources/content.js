@@ -510,4 +510,10 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+const theater = {
+  label: "Theater",
+  title: "The Theater, to stream my favorite videos with friends and events.",
+  description: `Theater-related content by ${person.name}`,
+};
+
+export { person, social, newsletter, home, about, blog, work, gallery, theater };

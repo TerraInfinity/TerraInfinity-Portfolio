@@ -7,11 +7,11 @@ import { Fade, Flex, Line, ToggleButton } from "@/once-ui/components";
 import styles from "@/components/Header.module.scss";
 
 import { routes, display } from "@/app/resources";
-import { person, home, about, blog, work, gallery } from "@/app/resources/content";
+import { person, home, about, blog, work, gallery, theater } from "@/app/resources/content";
 
 type TimeDisplayProps = {
   timeZone: string;
-  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+  locale?: string;
 };
 
 const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
@@ -140,6 +140,23 @@ export const Header = () => {
                     prefixIcon="gallery"
                     href="/gallery"
                     selected={pathname.startsWith("/gallery")}
+                  />
+                </>
+              )}
+              {routes["/theater"] && (
+                <>
+                  <ToggleButton
+                    className="s-flex-hide"
+                    prefixIcon="theater"
+                    href="/theater"
+                    label={theater.label}
+                    selected={pathname.startsWith("/theater")}
+                  />
+                  <ToggleButton
+                    className="s-flex-show"
+                    prefixIcon="theater"
+                    href="/theater"
+                    selected={pathname.startsWith("/theater")}
                   />
                 </>
               )}
