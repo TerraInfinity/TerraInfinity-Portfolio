@@ -7,6 +7,7 @@ import { baseURL } from "@/app/resources";
 import { person } from "@/app/resources/content";
 import { formatDate } from "@/app/utils/formatDate";
 import ScrollToHash from "@/components/ScrollToHash";
+import { TextToSpeech } from "@/components/TextToSpeech";
 
 interface WorkParams {
   params: {
@@ -115,6 +116,7 @@ export default function Project({ params }: WorkParams) {
           <Text variant="body-default-s" onBackground="neutral-weak">
             {post.metadata.publishedAt && formatDate(post.metadata.publishedAt)}
           </Text>
+          <TextToSpeech />
         </Flex>
         <CustomMDX source={post.content} />
       </Column>
